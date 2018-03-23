@@ -1,8 +1,7 @@
 task :welcome_mention => :environment do
   client = Mastodon::REST::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
 
-  user = client.followers(ENV["ADMIN_ID"]).first
-  creatodon = client.account(ENV["BOT_ID"]) 
+  user = client.followers(1).first
 
   if user.url =~ /gamelinks007.net/ && !(client.follow(user.id).following?) then
     message = ("@#{user.acct}さん！\n
