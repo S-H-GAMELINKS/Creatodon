@@ -10,3 +10,14 @@ task :welcome_mention => :environment do
         User.create(:id_name => "#{new_user.acct}")
     end
 end
+
+task :follow_local => :environment do
+  client = Mastodon::REST::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
+
+  client.followers(ENV["ADMIN_ID"]).each do |user|
+    if user.url =~ /gamelinks007.net/  then
+      url = user.acct
+      response = client.follow_by_uri(url)
+    end
+  end
+end
