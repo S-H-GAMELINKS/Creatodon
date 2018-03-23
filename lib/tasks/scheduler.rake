@@ -4,7 +4,7 @@ task :welcome_mention => :environment do
   new_user = client.followers(ENV["ADMIN_ID"]).first
   creatodon = client.account(ENV["BOT_ID"])
 
-  @users = Usera.all
+  @users = User.all
 
   @user.each do |user|
     if user.id != new_user.acct && new_user.url =~ /gamelinks007.net/  then
