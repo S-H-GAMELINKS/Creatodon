@@ -21,3 +21,11 @@ task :follow_local => :environment do
     end
   end
 end
+
+task :toot_info => :environment do
+  client = Mastodon::REST::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
+
+  @toot = Toot.find(rand(Toot.count) + 1)
+  
+  response = client.create_status("#{@toot.content}")
+end

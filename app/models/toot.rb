@@ -1,0 +1,2 @@
+class Toot < ApplicationRecord
+end
