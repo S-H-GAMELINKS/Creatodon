@@ -27,5 +27,5 @@ task :toot_info => :environment do
 
   @toot = Toot.find(rand(Toot.count) + 1)
   
-  response = client.create_status("#{@toot.content}")
+  response = client.create_status("#{@toot.toot}")
 end
