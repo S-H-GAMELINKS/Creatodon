@@ -40,7 +40,7 @@ task :mention => :environment do
   end
 
   client.public_timeline(:limit => 1000).each do |toot|
-    if toot.content =~ /@#{client.account(ENV["BOT_ID"]).acct}/ && toot.content =~ /歌って！/ then
+    if toot.content =~ /@#{client.account(ENV["BOT_ID"]).acct}@gamelinks007.net/ && toot.content =~ /歌って！/ then
       client.create_status("@#{toot.account.acct} さん\n でいじ～でいじ～ \n ぎぶみ～　ゆあ　あんさぁ　どぅ！\n")
     end
   end
