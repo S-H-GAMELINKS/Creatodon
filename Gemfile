@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'mastodon-api'
+gem 'mastodon-api', git:"https://github.com/tootsuite/mastodon-api.git", require: 'mastodon'
 gem 'omniauth-mastodon'
 gem 'omniauth'
 gem 'mastodon'
