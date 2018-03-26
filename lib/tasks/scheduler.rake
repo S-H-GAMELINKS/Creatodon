@@ -1,3 +1,5 @@
+require 'mastodon'
+
 task :welcome_mention => :environment do
   client = Mastodon::REST::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
 
@@ -32,7 +34,6 @@ end
 
 task :mention => :environment do
   client = Mastodon::REST::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
-  stream = Mastodon::Streaming::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
 
   client.public_timeline(:local => true, :limit => 10).each do |toot|
     if toot.content =~ /@#{client.account(ENV["BOT_ID"]).acct}/ && toot.content =~ /歌って！/ then
@@ -47,7 +48,10 @@ task :mention => :environment do
   end
 end
 
-task :mention_test => :environment do
-  
+task :streaming => :environment do
+  stream = Mastodon::Streaming::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
 
+  stream.user() do |toot|
+    puts toot.content
+  end
 end
