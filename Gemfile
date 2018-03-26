@@ -35,6 +35,8 @@ gem 'omniauth-mastodon'
 gem 'omniauth'
 gem 'mastodon'
 
+gem 'sanitize'
+
 gem 'dotenv-rails'
 
 # Reduces boot times through caching; required in config/boot.rb

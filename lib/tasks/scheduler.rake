@@ -48,6 +48,16 @@ task :mention => :environment do
   end
 end
 
+task :mention_streaming => :environment do
+  stream = Mastodon::Streaming::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
+
+  stream.user() do |toot|
+    if toot.content =~ /歌って！/ then
+      client.create_status("@#{toot.account.acct} さん\n でいじ～でいじ～ \n ぎぶみ～　ゆあ　あんさぁ　どぅ！\n")
+    end
+  end
+end
+
 task :streaming => :environment do
   stream = Mastodon::Streaming::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
 
