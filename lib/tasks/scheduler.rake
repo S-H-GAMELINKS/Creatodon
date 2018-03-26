@@ -32,6 +32,7 @@ end
 
 task :mention => :environment do
   client = Mastodon::REST::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
+  stream = Mastodon::Streaming::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
 
   client.public_timeline(:local => true, :limit => 10).each do |toot|
     if toot.content =~ /@#{client.account(ENV["BOT_ID"]).acct}/ && toot.content =~ /歌って！/ then
