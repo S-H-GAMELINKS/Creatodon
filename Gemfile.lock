@@ -1,13 +1,3 @@
-GIT
-  remote: https://github.com/tootsuite/mastodon-api.git
-  revision: a3ff60a872191aa2f499a2b4c7a85045ead14e64
-  ref: a3ff60a
-  specs:
-    mastodon-api (1.1.0)
-      addressable (~> 2.4)
-      buftok
-      http (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,7 +50,6 @@ GEM
     bindex (0.5.0)
     bootsnap (1.2.1)
       msgpack (~> 1.0)
-    buftok (0.2.0)
     builder (3.2.3)
     byebug (10.0.1)
     capybara (2.18.0)
@@ -123,6 +112,9 @@ GEM
     marcel (0.3.1)
       mimemagic (~> 0.3.2)
     mastodon (0.3.1)
+    mastodon-api (1.1.0)
+      addressable (~> 2.4)
+      http (~> 2.0)
     method_source (0.9.0)
     mimemagic (0.3.2)
     mini_mime (1.0.0)
@@ -246,7 +238,7 @@ DEPENDENCIES
   duktape
   jbuilder (~> 2.5)
   mastodon
-  mastodon-api!
+  mastodon-api
   omniauth
   omniauth-mastodon
   pg (~> 0.20)

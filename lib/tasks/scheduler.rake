@@ -46,3 +46,8 @@ task :mention => :environment do
     end
   end
 end
+
+task :mention_test => :environment do
+  
+
+end
